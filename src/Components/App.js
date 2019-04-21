@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 import { hot } from "react-hot-loader";
+import Board from './Board.js'
 import "./App.css";
+
+
+
+
 
 class App extends Component {
   render() {
-    return <h1>Hi</h1>;
+    return <div style={{ borderColor:'green' }}><Board /></div>;
   }
 }
 

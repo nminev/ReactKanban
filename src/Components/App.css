@@ -46,3 +46,29 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+div {
+  border-style: solid;
+  /* border-color: red; */
+  border-width: 0.5px;
+  margin: 10px;
+}
+
+.list {
+  width: 272px;
+  margin: 4px 4px;
+  height: 100%;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.board{
+  user-select: none;
+  white-space: nowrap;
+  margin-bottom: 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 8px;
+}
