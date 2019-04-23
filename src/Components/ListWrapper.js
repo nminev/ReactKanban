@@ -3,21 +3,6 @@ import NoteWrapper from './NoteWrapper.js'
 import "./App.css";
 import { hot } from "react-hot-loader";
 
-
-
-class ListHeader extends Component{
-  constructor(props){
-    super(props);
-  }
-  render(){
-    return (
-    <div>
-      <h4>List Header</h4>
-      <button onClick={() => this.props.ChangeShowPopup()}> press me </button>
-    </div>);
-  }
-}
-
 class ListWrapper extends Component{ 
   constructor(props){
     super(props);
@@ -42,14 +27,14 @@ class ListWrapper extends Component{
  }
     render(){
       return  <div className={"list"} style={{ borderColor:'blue' }}>
-      <ListHeader  ChangeShowPopup={() => this.ChangeShowPopup()} /> 
+      <button onClick={() => this.ChangeShowPopup()}> press me </button>
       {this.state.showPopup ? 
           <Popup
             text='Close Me'
-            AddingNote={() => this.AddingNote()}
+            AddingNote={() => this.AddingNote.bind(this)}
           />
           : null
-        }
+      }
       {this.state.Notes}
       </div>
     }
@@ -61,7 +46,7 @@ class Popup extends Component {
         <div className='popup'>
           <div className='popup_inner'>
             <h1>{this.props.text}</h1>
-          <button onClick={this.props.AddingNote}>close me</button>
+          <button onClick={this.props.AddingNote()}>close me</button>
           </div>
         </div>
       );
