@@ -5,7 +5,7 @@ import { hot } from "react-hot-loader";
 
 class NoteWrapper extends Component{
     render(){
-      return <div style={{ borderColor:'yellow' }} >this is card</div>
+      return <div style={{ borderColor:'yellow' }} >{this.props.text}</div>
     }
   }
   

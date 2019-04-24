@@ -10,10 +10,11 @@ class ListWrapper extends Component{
       Notes:Array().fill(null),
       showPopup:true,
     }
+    this.NoteName=""
   }
-  AddingNote(){
+  AddingNote(name){
     var tempArray = this.state.Notes.slice();    
-    tempArray.push(<NoteWrapper/>);   
+    tempArray.push(<NoteWrapper text={name}/>);   
     this.setState({
       Notes:tempArray,
       showPopup:!this.state.showPopup
@@ -41,13 +42,23 @@ class ListWrapper extends Component{
   }
 
 class Popup extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {value: ""};
+    this.handleChange = this.handleChange.bind(this);
+
+  }
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
     render() {
       return (
         <div className='popup'>
-          <div className='popup_inner'>
-            <h1>{this.props.text}</h1>
-          <button onClick={this.props.AddingNote()}>close me</button>
-          </div>
+           <label>
+            Name:
+            <input type="text" name="name" onChange={this.handleChange} />
+          </label>
+          <button onClick={this.props.AddingNote(this.state.value)}>close me</button>
         </div>
       );
     }
