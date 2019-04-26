@@ -18,7 +18,7 @@ class Board extends Component{
         this.setState({Lists:tempArray})
      }
     render() {
-      return <div className={"board"} style={{ borderColor:'red' }}>
+      return <div className={"board"}>
       {this.state.Lists}
       <button onClick={() => this.AddingFunction()}>add List</button>
       </div>;
