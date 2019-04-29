@@ -5,21 +5,21 @@ import Card from "react-bootstrap/Card";
 import React, { Component } from "react";
 import { hot } from "react-hot-loader";
 // import NoteWrapper from "./NoteWrapper.js";
-import "./App.css";
+// import "./App.css";
 
 class ListWrapper extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      Notes: Array().fill(null),
+      Cards: Array().fill(null),
       showPopup: true
     };
   }
 
-  AddingNote(title, description) {
-    let tempArray = this.state.Notes.slice();
+  AddingCardFunction(title, description) {
+    let tempArray = this.state.Cards.slice();
     tempArray.push(
-      <Card>
+      <Card className={"card"}>
         <Card.Body>
           <Card.Title>{title}</Card.Title>
           <Card.Text>{description}</Card.Text>
@@ -27,7 +27,7 @@ class ListWrapper extends Component {
       </Card>
     );
     this.setState({
-      Notes: tempArray,
+      Cards: tempArray,
       showPopup: !this.state.showPopup
     });
   }
@@ -44,16 +44,16 @@ class ListWrapper extends Component {
         <Button onClick={() => this.ChangeShowPopup()}> press me </Button>
 
         {this.state.showPopup ? (
-          <Popup  AddingNote={this.AddingNote.bind(this)} />
+          <AddCardForm  AddingCardFunction={this.AddingCardFunction.bind(this)} />
         ) : null}
 
-        {this.state.Notes}
+        {this.state.Cards}
       </div>
     );
   }
 }
 
-class Popup extends Component {
+class AddCardForm extends Component {
   constructor(props) {
     super(props);
     this.cardTitle = "Empty title";
@@ -71,42 +71,38 @@ class Popup extends Component {
   }
   render() {
     return (
-      <div>
-        <div className="popup_inner">
+        <div>
             Name:
-            <InputGroup className="mb-3">
+            <InputGroup>
               <InputGroup.Prepend>
-                <InputGroup.Text id="basic-addon1">
+                <InputGroup.Text>
                   Card Title
                 </InputGroup.Text>
               </InputGroup.Prepend>
               <FormControl
                 onChange={this.handleCardTitle}
-                placeholder="Note Name"
-                aria-describedby="basic-addon1"
+                placeholder="Card Name"
               />
             </InputGroup>
 
-            <InputGroup className="mb-2">
+            <InputGroup>
               <InputGroup.Prepend>
-                <InputGroup.Text id="basic-addon1">
+                <InputGroup.Text>
                   Description
                 </InputGroup.Text>
               </InputGroup.Prepend>
               <FormControl
                 onChange={this.handleCardDescription}
-                placeholder="Note Description"
-                aria-describedby="basic-addon1"
+                placeholder="Card Description"
               />
             </InputGroup>
           <Button
             variant="secondary"
-            onClick={() => this.props.AddingNote(this.cardTitle,this.cardDescription)}
+            onClick={() => this.props.AddingCardFunction(this.cardTitle,this.cardDescription)}
           >
-            Add Note
+            Add Card
           </Button>
         </div>
-      </div>
     );
   }
 }
