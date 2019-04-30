@@ -4,6 +4,8 @@ import FormControl from "react-bootstrap/FormControl";
 import Card from "react-bootstrap/Card";
 import React, { Component } from "react";
 import { hot } from "react-hot-loader";
+import Popup from "reactjs-popup";
+
 // import NoteWrapper from "./NoteWrapper.js";
 // import "./App.css";
 
@@ -12,7 +14,7 @@ class ListWrapper extends Component {
     super(props);
     this.state = {
       Cards: Array().fill(null),
-      showPopup: true
+      showPopup: false
     };
   }
 
@@ -31,7 +33,6 @@ class ListWrapper extends Component {
       showPopup: !this.state.showPopup
     });
   }
-
   ChangeShowPopup() {
     this.setState({
       showPopup: !this.state.showPopup
@@ -41,11 +42,9 @@ class ListWrapper extends Component {
   render() {
     return (
       <div className={"list"}>
-        <Button onClick={() => this.ChangeShowPopup()}> press me </Button>
-
-        {this.state.showPopup ? (
+          <Popup trigger={<Button> press me </Button>} modal={true} position="right center">
           <AddCardForm  AddingCardFunction={this.AddingCardFunction.bind(this)} />
-        ) : null}
+          </Popup>
 
         {this.state.Cards}
       </div>
