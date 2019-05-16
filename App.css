@@ -1,0 +1,61 @@
+/* div {
+  border-style: solid;
+  border-width: 0.5px;
+  margin: 10px;
+} */
+
+.list {
+  width: 272px;
+  margin: 4px 4px;
+  height: 100%;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: top;
+  white-space: pre-wrap;
+  background-color:#dfe1e6;
+}
+
+.board{
+  user-select: none;
+  white-space: nowrap;
+  margin-bottom: 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 8px;
+}
+
+.card{
+  margin: 10px;
+}
+.addCardBtn{
+  float: right;
+}
+
+.listHeader{
+  display:inline;
+  background:rgba(0,0,0,0);
+  border:none;
+}
+
+
+/*
+.window {
+  display: block;
+  background-color: #f4f5f7;
+  border-radius: 2px;
+  display: none;
+  margin: 48px 0 80px;
+  overflow: hidden;
+  position: relative;
+  width: 768px;
+  width: auto;
+  z-index: 25;
+}
+
+.focus-dummy {
+  width: 1px;
+  height: 0;
+  display: block;
+  overflow: hidden;
+  outline: none;
+} */
